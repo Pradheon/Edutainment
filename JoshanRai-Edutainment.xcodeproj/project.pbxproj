@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		3F87CDDD27D1436800627A1D /* JoshanRai_EdutainmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDDC27D1436800627A1D /* JoshanRai_EdutainmentApp.swift */; };
-		3F87CDDF27D1436800627A1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDDE27D1436800627A1D /* ContentView.swift */; };
+		3F87CDDF27D1436800627A1D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDDE27D1436800627A1D /* HomeView.swift */; };
 		3F87CDE127D1436900627A1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F87CDE027D1436900627A1D /* Assets.xcassets */; };
 		3F87CDE427D1436900627A1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F87CDE327D1436900627A1D /* Preview Assets.xcassets */; };
+		3F87CDEE27D143D600627A1D /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDEA27D143D600627A1D /* GameView.swift */; };
+		3F87CDEF27D143D600627A1D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDEB27D143D600627A1D /* Settings.swift */; };
+		3F87CDF027D143D600627A1D /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDEC27D143D600627A1D /* TutorialView.swift */; };
+		3F87CDF127D143D600627A1D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDED27D143D600627A1D /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3F87CDD927D1436800627A1D /* JoshanRai-Edutainment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JoshanRai-Edutainment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F87CDDC27D1436800627A1D /* JoshanRai_EdutainmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoshanRai_EdutainmentApp.swift; sourceTree = "<group>"; };
-		3F87CDDE27D1436800627A1D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3F87CDDE27D1436800627A1D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3F87CDE027D1436900627A1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F87CDE327D1436900627A1D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3F87CDEA27D143D600627A1D /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		3F87CDEB27D143D600627A1D /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		3F87CDEC27D143D600627A1D /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		3F87CDED27D143D600627A1D /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,11 @@
 			isa = PBXGroup;
 			children = (
 				3F87CDDC27D1436800627A1D /* JoshanRai_EdutainmentApp.swift */,
-				3F87CDDE27D1436800627A1D /* ContentView.swift */,
+				3F87CDDE27D1436800627A1D /* HomeView.swift */,
+				3F87CDEA27D143D600627A1D /* GameView.swift */,
+				3F87CDEB27D143D600627A1D /* Settings.swift */,
+				3F87CDED27D143D600627A1D /* SettingsView.swift */,
+				3F87CDEC27D143D600627A1D /* TutorialView.swift */,
 				3F87CDE027D1436900627A1D /* Assets.xcassets */,
 				3F87CDE227D1436900627A1D /* Preview Content */,
 			);
@@ -137,7 +149,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F87CDDF27D1436800627A1D /* ContentView.swift in Sources */,
+				3F87CDDF27D1436800627A1D /* HomeView.swift in Sources */,
+				3F87CDEE27D143D600627A1D /* GameView.swift in Sources */,
+				3F87CDEF27D143D600627A1D /* Settings.swift in Sources */,
+				3F87CDF127D143D600627A1D /* SettingsView.swift in Sources */,
+				3F87CDF027D143D600627A1D /* TutorialView.swift in Sources */,
 				3F87CDDD27D1436800627A1D /* JoshanRai_EdutainmentApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
