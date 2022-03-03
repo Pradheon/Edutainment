@@ -52,17 +52,24 @@ struct GameView: View {
     @State private var alertMessage = ""
     
     @State private var displayAlert = false
+    @State private var gameOver = false
+    @State private var reset = false
+    @State private var returnHome = false
     
     @State private var questionProgress: Float = 0.0
     @State private var currentQuestion = 0
     @State private var selectedOption = 0
+    @State private var score = 0
+    
+    @State private var animationOpacity = 1.0
+    @State private var animationCount = 0.0
     
     @State private var questionsArray = [Question]()
     @State private var answersArray = [Question]()
     
     var body: some View {
         ZStack {
-            let _ = debugPrint(settings.selection.rawValue)
+            //let _ = debugPrint(settings.selection.rawValue)
             //  Background
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea()
@@ -83,7 +90,9 @@ struct GameView: View {
                 VStack(spacing: 15) {
                     ForEach(0..<4, id: \.self) { number in
                         Button {
-                            optionTapped(number)
+                            withAnimation {
+                                optionTapped(number)
+                            }
                         } label: {
                             if answersArray.isEmpty {
                                 Text("Loading...")
@@ -92,6 +101,9 @@ struct GameView: View {
                                     .hollowCapsuleButtonStyle()
                             }
                         }
+                        .rotation3DEffect(number == selectedOption ? .degrees(animationCount) : .degrees(0), axis: (x: 0, y: 1, z: 0))
+                        .rotation3DEffect(number != selectedOption ? .degrees(animationCount) : .degrees(0), axis: (x: 2, y: 0, z: 0))
+                        .opacity(number != selectedOption ? animationOpacity : 1.0)
                     }
                 }
                 .materialUnderlayStyle()
@@ -106,6 +118,10 @@ struct GameView: View {
                     .padding()
                     .background(.thinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
+                
+                //  Score View
+                Text("Score: \(score)")
+                    .materialUnderlayStyle()
             }
         }
         .onAppear(perform: {
@@ -116,6 +132,10 @@ struct GameView: View {
             Button("Continue", action: askQuestion)
         } message: {
             Text(alertMessage)
+        }
+        .alert(alertTitle, isPresented: $gameOver) {
+            Button("Reset", action: resetGame)
+            NavigationLink("Return", destination: HomeView())
         }
     }
     
@@ -144,24 +164,28 @@ struct GameView: View {
         answersArray.shuffle()
     }
     
-    func setQuestionAmount() {
-        //guard let amount = Int(settings.selection) else {
-            //
-        //}
-    }
-    
     func optionTapped(_ number: Int) {
         selectedOption = number
         //debugPrint(settings.selection.rawValue)
-        let progression = Float(currentQuestion) / Float(settings.selection.rawValue)!
+        let progression = Float(Float(currentQuestion) / Float(settings.selection.rawValue)!)
         
         if answersArray[number].product == questionsArray[currentQuestion].product {
             questionProgress += progression
+            score += 1
             alertTitle = "Hurray!"
             alertMessage = "You got it right. \n🥳"
+            
+            withAnimation {
+                animationCount += 360
+            }
         } else {
+            score -= 1
             alertTitle = "Oh no!"
             alertMessage = "You got it wrong. \n😢"
+            
+            withAnimation {
+                animationCount += 360
+            }
         }
         
         displayAlert = true
@@ -179,6 +203,11 @@ struct GameView: View {
     }
     
     func resetGame() {
+        gameOver = true
+        
+        alertTitle = "Game Over"
+        alertMessage = "Great Job! \nReset or Return to Home?"
+        
         questionsArray = []
         answersArray = []
         currentQuestion = 0

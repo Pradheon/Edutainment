@@ -30,6 +30,8 @@ extension View {
 }
 
 struct HomeView: View {
+    ///@StateObject var settings = Settings()
+    
     var body: some View {
         //  Home Nav View
         NavigationView {
@@ -60,6 +62,7 @@ struct HomeView: View {
                 }
             }
         }
+        ///.environmentObject(settings)
     }
 }
 

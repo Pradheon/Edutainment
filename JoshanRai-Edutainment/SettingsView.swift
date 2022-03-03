@@ -33,13 +33,13 @@ struct SettingsView: View {
             }
             
             //  Game View NavLink
-            NavigationLink(destination: GameView(settings: Settings())) {
+            NavigationLink(destination: GameView(settings: settings)) {
                 Text("Start Game")
                     .capsuleButtonStyle()
             }
         }
         .background(Color.gray.opacity(0.25))
-        //.environmentObject(settings)
+        .environmentObject(settings)
     }
 }
 
