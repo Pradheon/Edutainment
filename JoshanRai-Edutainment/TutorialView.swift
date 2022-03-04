@@ -1,6 +1,6 @@
 //
 //  TutorialView.swift
-//  EdutainmentTest
+//  JoshanRai-Edutainment
 //
 //  Created by Joshan Rai on 3/1/22.
 //
