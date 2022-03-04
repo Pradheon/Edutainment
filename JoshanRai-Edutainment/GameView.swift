@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 //  Shake effect made with help from https://www.objc.io/blog/2019/10/01/swiftui-shake-animation/
 struct Shake: GeometryEffect {
@@ -70,14 +71,16 @@ struct GameView: View {
     @State private var returnHome = false
     @State private var exitGame = false
     
-    @State private var questionProgress = 0.0
-    @State private var currentQuestion = 0
-    @State private var selectedOption = 0
-    @State private var score = 0
+    @State private var questionProgress: Double = 0.0
+    @State private var currentQuestion: Int = 0
+    @State private var selectedOption: Int = 0
+    @State private var score: Int = 0
+    @State private var questionCount: Int = 0
     
-    @State private var animationOpacity = 1.0
-    @State private var animationCount = 0.0
-    @State private var animationIncorrectCount = 0.0
+    @State var animationOpacity: Double = 1.0
+    @State var animationCount: Double = 0.0
+    @State var animationIncorrectCount: Double = 0.0
+    @State var confettiCounter: Int = 0
     
     @State private var questionsArray = [Question]()
     @State private var answersArray = [Question]()
@@ -132,17 +135,19 @@ struct GameView: View {
                 ProgressView(value: questionProgress, total: 1.0, label: {
                     Text("Progress")
                 }, currentValueLabel: {
-                    Text("\(currentQuestion) of \(settings.selection.rawValue)")
+                    Text("\(currentQuestion) of \(questionCount)")
                 })
                     .tint(.mint)
                     .padding()
                     .background(.thinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
             }
+            ConfettiCannon(counter: $confettiCounter)
         }
         .onAppear(perform: {
             createQuestions()
             createAnswers()
+            countOfQuestions()
         })
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -183,6 +188,7 @@ struct GameView: View {
         }
     }
     
+    //  Functions
     func createQuestions() {
         for i in 1...settings.multiTablesUpTo {
             for j in 1...12 {
@@ -208,10 +214,19 @@ struct GameView: View {
         answersArray.shuffle()
     }
     
+    @discardableResult func countOfQuestions() -> Int {
+        guard let count = Int(settings.selection.rawValue) else {
+            questionCount = questionsArray.count
+            return questionCount
+        }
+        questionCount = count
+        return questionCount
+    }
+    
     func optionTapped(_ number: Int) {
         selectedOption = number
         //debugPrint(settings.selection.rawValue)
-        questionProgress += Double((Double(currentQuestion) / Double(settings.selection.rawValue)!))
+        questionProgress += Double((Double(currentQuestion) / Double(questionCount)))
         
         if answersArray[number].product == questionsArray[currentQuestion].product {
             score += 1
@@ -220,6 +235,7 @@ struct GameView: View {
             
             withAnimation(.easeInOut(duration: 1.5)) {
                 animationCount += 360
+                confettiCounter += 10
             }
         } else {
             if score == 0 {
@@ -242,7 +258,7 @@ struct GameView: View {
     
     func askQuestion() {
         //let _ = debugPrint(settings.selection.rawValue)
-        if currentQuestion == Int(settings.selection.rawValue) {
+        if currentQuestion == questionCount {
             gameOver = true
             resetGame()
         } else {
@@ -253,7 +269,7 @@ struct GameView: View {
     
     func resetGame() {
         alertTitle = "Game Over"
-        alertMessage = "Great Job! \nYou got \(score) of \(settings.selection.rawValue) correct. \nReset or Return to Home?"
+        alertMessage = "Great Job! \nYou got \(score) of \(questionCount) correct. \nReset or Return to Home?"
         
         questionsArray = []
         answersArray = []
@@ -262,6 +278,7 @@ struct GameView: View {
         
         createQuestions()
         createAnswers()
+        countOfQuestions()
     }
     
     func exitTheGame() {
