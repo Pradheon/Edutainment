@@ -7,6 +7,39 @@
 
 import SwiftUI
 
+//  Splash Screen made with help from https://mobiraft.com/ios/swiftui/how-to-add-splash-screen-in-swiftui/
+struct SplashView: View {
+    @State var isActive = false
+    
+    var body: some View {
+        ZStack {
+            //  Background
+            LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+            VStack {
+                if isActive {
+                    HomeView()
+                } else {
+                    VStack(spacing: 10) {
+                        Text("Edutainment")
+                            .font(.largeTitle.bold())
+                            .shadow(color: .white, radius: 18, x: 0, y: 0)
+                        Text("An app for kids")
+                            .font(.footnote.monospaced())
+                    }
+                }
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
+                withAnimation {
+                    isActive = true
+                }
+            }
+        }
+    }
+}
+
 struct CapsuleButton: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -43,9 +76,13 @@ struct HomeView: View {
                 //  Title and NavLink Buttons
                 VStack {
                     //  Title
-                    Text("Edutainment")
-                        .font(.title.bold())
-                        .shadow(color: .white, radius: 18, x: 0, y: 0)
+                    VStack(spacing: 10) {
+                        Text("Edutainment")
+                            .font(.largeTitle.bold())
+                            .shadow(color: .white, radius: 18, x: 0, y: 0)
+                        Text("An app for kids")
+                            .font(.footnote.monospaced())
+                    }
                     
                     //  Game Settings View
                     NavigationLink(destination: SettingsView()) {
@@ -61,7 +98,18 @@ struct HomeView: View {
                     }
                 }
             }
+            /*
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {}) {
+                        Image(systemName: "line.horizontal.3")
+                            .padding(.horizontal)
+                    }
+                }
+            }
+             */
         }
+        .tint(.primary)
         ///.environmentObject(settings)
     }
 }

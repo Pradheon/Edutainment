@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TutorialView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -71,6 +73,20 @@ struct TutorialView: View {
                 }
             }
         }
+        .navigationTitle("How to Play")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigation) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "arrow.left.circle")
+                        .foregroundColor(.primary)
+                }
+            }
+        }
+        .tint(.primary)
     }
 }
 
