@@ -21,6 +21,9 @@ struct SplashView: View {
                     HomeView()
                 } else {
                     VStack(spacing: 10) {
+                        Image("MultiplicationSignGraphic")
+                            .resizable()
+                            .frame(width: 180.0, height: 180.0, alignment: .center)
                         Text("Edutainment")
                             .font(.largeTitle.bold())
                             .shadow(color: .white, radius: 18, x: 0, y: 0)
@@ -77,6 +80,9 @@ struct HomeView: View {
                 VStack {
                     //  Title
                     VStack(spacing: 10) {
+                        Image("MultiplicationSignGraphic")
+                            .resizable()
+                            .frame(width: 180.0, height: 180.0, alignment: .center)
                         Text("Edutainment")
                             .font(.largeTitle.bold())
                             .shadow(color: .white, radius: 18, x: 0, y: 0)

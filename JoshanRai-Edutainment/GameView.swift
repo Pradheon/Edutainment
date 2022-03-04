@@ -70,8 +70,8 @@ struct GameView: View {
     @State private var returnHome = false
     @State private var exitGame = false
     
-    @State private var questionProgress: Float = 0.0
-    @State private var currentQuestion = 1
+    @State private var questionProgress = 0.0
+    @State private var currentQuestion = 0
     @State private var selectedOption = 0
     @State private var score = 0
     
@@ -129,10 +129,9 @@ struct GameView: View {
                     .materialUnderlayStyle()
                 
                 //  Progression View
-                ProgressView(value: questionProgress, total: Float(settings.selection.rawValue)!, label: {
+                ProgressView(value: questionProgress, total: 1.0, label: {
                     Text("Progress")
                 }, currentValueLabel: {
-                    //let _ = debugPrint(settings.selection.rawValue)
                     Text("\(currentQuestion) of \(settings.selection.rawValue)")
                 })
                     .tint(.mint)
@@ -212,11 +211,9 @@ struct GameView: View {
     func optionTapped(_ number: Int) {
         selectedOption = number
         //debugPrint(settings.selection.rawValue)
-        let progression = Float(Float(currentQuestion) / Float(settings.selection.rawValue)!) * 2
-        //Float(((Float(currentQuestion) / Float(settings.selection.rawValue)!) * Float(settings.selection.rawValue)!) / 10)
+        questionProgress += Double((Double(currentQuestion) / Double(settings.selection.rawValue)!))
         
         if answersArray[number].product == questionsArray[currentQuestion].product {
-            questionProgress += progression
             score += 1
             alertTitle = "Hurray!"
             alertMessage = "You got it right. \n🥳"
@@ -226,7 +223,7 @@ struct GameView: View {
             }
         } else {
             if score == 0 {
-                score = 0
+                score += 0
             } else {
                 score -= 1
             }
@@ -239,6 +236,7 @@ struct GameView: View {
             }
         }
         
+        currentQuestion += 1
         displayAlert = true
     }
     
@@ -248,7 +246,6 @@ struct GameView: View {
             gameOver = true
             resetGame()
         } else {
-            currentQuestion += 1
             answersArray = []
             createAnswers()
         }
@@ -260,7 +257,7 @@ struct GameView: View {
         
         questionsArray = []
         answersArray = []
-        currentQuestion = 1
+        currentQuestion = 0
         score = 0
         
         createQuestions()
