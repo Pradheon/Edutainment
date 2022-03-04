@@ -2,7 +2,7 @@
 //  Settings.swift
 //  EdutainmentTest
 //
-//  Created by Joshan Rai on 3/2/22.
+//  Created by Joshan Rai on 3/1/22.
 //
 
 import Foundation
