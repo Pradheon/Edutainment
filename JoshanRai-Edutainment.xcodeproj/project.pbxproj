@@ -15,7 +15,7 @@
 		3F87CDEF27D143D600627A1D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDEB27D143D600627A1D /* Settings.swift */; };
 		3F87CDF027D143D600627A1D /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDEC27D143D600627A1D /* TutorialView.swift */; };
 		3F87CDF127D143D600627A1D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDED27D143D600627A1D /* SettingsView.swift */; };
-		3F87CDF427D289F200627A1D /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F87CDF327D289F200627A1D /* ConfettiSwiftUI */; };
+		3F87CDF727D2971800627A1D /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F87CDF627D2971800627A1D /* ConfettiSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F87CDF427D289F200627A1D /* ConfettiSwiftUI in Frameworks */,
+				3F87CDF727D2971800627A1D /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,7 @@
 			);
 			name = "JoshanRai-Edutainment";
 			packageProductDependencies = (
-				3F87CDF327D289F200627A1D /* ConfettiSwiftUI */,
+				3F87CDF627D2971800627A1D /* ConfettiSwiftUI */,
 			);
 			productName = "JoshanRai-Edutainment";
 			productReference = 3F87CDD927D1436800627A1D /* JoshanRai-Edutainment.app */;
@@ -129,7 +129,7 @@
 			);
 			mainGroup = 3F87CDD027D1436800627A1D;
 			packageReferences = (
-				3F87CDF227D289F200627A1D /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				3F87CDF527D2971800627A1D /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = 3F87CDDA27D1436800627A1D /* Products */;
 			projectDirPath = "";
@@ -367,7 +367,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3F87CDF227D289F200627A1D /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+		3F87CDF527D2971800627A1D /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI";
 			requirement = {
@@ -378,9 +378,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3F87CDF327D289F200627A1D /* ConfettiSwiftUI */ = {
+		3F87CDF627D2971800627A1D /* ConfettiSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3F87CDF227D289F200627A1D /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			package = 3F87CDF527D2971800627A1D /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
 			productName = ConfettiSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */

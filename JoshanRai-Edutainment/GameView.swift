@@ -142,7 +142,11 @@ struct GameView: View {
                     .background(.thinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
             }
-            ConfettiCannon(counter: $confettiCounter)
+            
+            //  Confetti
+            withAnimation {
+                ConfettiCannon(counter: $confettiCounter)
+            }
         }
         .onAppear(perform: {
             createQuestions()
@@ -235,7 +239,7 @@ struct GameView: View {
             
             withAnimation(.easeInOut(duration: 1.5)) {
                 animationCount += 360
-                confettiCounter += 10
+                confettiCounter += 1
             }
         } else {
             if score == 0 {
