@@ -7,64 +7,6 @@
 
 import SwiftUI
 
-struct RoundedRectangleRegularMaterial: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(maxWidth: .infinity)
-            .background(.regularMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-    }
-}
-
-extension View {
-    func roundedRectangleRegularMaterial() -> some View {
-        modifier(RoundedRectangleRegularMaterial())
-    }
-}
-
-struct RoundedRectangleThickMaterial: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(maxWidth: .infinity)
-            .background(.thickMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-    }
-}
-
-extension View {
-    func roundedRectangleThickMaterial() -> some View {
-        modifier(RoundedRectangleThickMaterial())
-    }
-}
-
-struct BodyFontAndAutoPadding: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.body)
-            .padding()
-    }
-}
-
-extension View {
-    func bodyFontAndAutoPadding() -> some View {
-        modifier(BodyFontAndAutoPadding())
-    }
-}
-
-struct TitleFontAndAutoPadding: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.title)
-            .padding()
-    }
-}
-
-extension View {
-    func titleFontAndAutoPadding() -> some View {
-        modifier(TitleFontAndAutoPadding())
-    }
-}
-
 struct TutorialView: View {
     @Environment(\.dismiss) var dismiss
     

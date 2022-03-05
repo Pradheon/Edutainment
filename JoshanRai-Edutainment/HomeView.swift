@@ -43,28 +43,6 @@ struct SplashView: View {
     }
 }
 
-struct CapsuleButton: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(maxWidth: 200)
-            .padding(12)
-            .foregroundColor(.black)
-            .background(.orange)
-            .overlay(
-                Capsule()
-                    .stroke(.black, lineWidth: 3)
-                    .shadow(color: .black, radius: 6, x: 0, y: 4)
-            )
-            .cornerRadius(100)
-    }
-}
-
-extension View {
-    func capsuleButtonStyle() -> some View {
-        modifier(CapsuleButton())
-    }
-}
-
 struct HomeView: View {
     ///@StateObject var settings = Settings()
     

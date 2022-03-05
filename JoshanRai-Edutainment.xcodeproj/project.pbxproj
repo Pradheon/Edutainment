@@ -16,6 +16,7 @@
 		3F87CDF027D143D600627A1D /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDEC27D143D600627A1D /* TutorialView.swift */; };
 		3F87CDF127D143D600627A1D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDED27D143D600627A1D /* SettingsView.swift */; };
 		3F87CDF727D2971800627A1D /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3F87CDF627D2971800627A1D /* ConfettiSwiftUI */; };
+		3F87CDF927D2ED7800627A1D /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87CDF827D2ED7800627A1D /* ViewModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3F87CDEB27D143D600627A1D /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		3F87CDEC27D143D600627A1D /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		3F87CDED27D143D600627A1D /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3F87CDF827D2ED7800627A1D /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				3F87CDDE27D1436800627A1D /* HomeView.swift */,
 				3F87CDEA27D143D600627A1D /* GameView.swift */,
 				3F87CDEB27D143D600627A1D /* Settings.swift */,
+				3F87CDF827D2ED7800627A1D /* ViewModifiers.swift */,
 				3F87CDED27D143D600627A1D /* SettingsView.swift */,
 				3F87CDEC27D143D600627A1D /* TutorialView.swift */,
 				3F87CDE027D1436900627A1D /* Assets.xcassets */,
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F87CDDF27D1436800627A1D /* HomeView.swift in Sources */,
+				3F87CDF927D2ED7800627A1D /* ViewModifiers.swift in Sources */,
 				3F87CDEE27D143D600627A1D /* GameView.swift in Sources */,
 				3F87CDEF27D143D600627A1D /* Settings.swift in Sources */,
 				3F87CDF127D143D600627A1D /* SettingsView.swift in Sources */,
@@ -305,7 +309,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.7;
+				MARKETING_VERSION = 2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jrai.JoshanRai-Edutainment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -334,7 +338,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.7;
+				MARKETING_VERSION = 2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jrai.JoshanRai-Edutainment";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

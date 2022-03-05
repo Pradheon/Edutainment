@@ -8,55 +8,6 @@
 import SwiftUI
 import ConfettiSwiftUI
 
-//  Shake effect made with help from https://www.objc.io/blog/2019/10/01/swiftui-shake-animation/
-struct Shake: GeometryEffect {
-    var amount: CGFloat = 10
-    var shakesPerUnit = 3
-    var animatableData: CGFloat
-    
-    func effectValue(size: CGSize) -> ProjectionTransform {
-        ProjectionTransform(CGAffineTransform(translationX: amount * sin(animatableData * .pi * CGFloat(shakesPerUnit)), y: 0))
-    }
-}
-
-struct MaterialUnderlay: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 20)
-            .background(.regularMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
-    }
-}
-
-extension View {
-    func materialUnderlayStyle() -> some View {
-        modifier(MaterialUnderlay())
-    }
-}
-
-struct HollowCapsuleButton: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .frame(maxWidth: 200)
-            .padding(12)
-            .foregroundColor(Color.white)
-            .background(Color.accentColor)
-            .overlay(
-                Capsule()
-                    .stroke(Color.white, lineWidth: 3)
-                    .shadow(color: .black, radius: 6, x: 0, y: 4)
-            )
-            .cornerRadius(100)
-    }
-}
-
-extension View {
-    func hollowCapsuleButtonStyle() -> some View {
-        modifier(HollowCapsuleButton())
-    }
-}
-
 struct GameView: View {
     @Environment(\.dismiss) var dismiss
     
@@ -238,6 +189,7 @@ struct GameView: View {
             alertMessage = "You got it right. \n🥳"
             
             withAnimation(.easeInOut(duration: 1.5)) {
+                animationOpacity = 1.0
                 animationCount += 360
                 confettiCounter += 1
             }
@@ -268,6 +220,10 @@ struct GameView: View {
         } else {
             answersArray = []
             createAnswers()
+            
+            animationOpacity = 1.0
+            animationCount = 0.0
+            animationIncorrectCount = 0.0
         }
     }
     
@@ -279,6 +235,10 @@ struct GameView: View {
         answersArray = []
         currentQuestion = 0
         score = 0
+        
+        animationOpacity = 1.0
+        animationCount = 0.0
+        animationIncorrectCount = 0.0
         
         createQuestions()
         createAnswers()
