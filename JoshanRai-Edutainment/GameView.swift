@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import ConfettiSwiftUI
 
 struct GameView: View {
     @Environment(\.dismiss) var dismiss
@@ -21,6 +20,7 @@ struct GameView: View {
     @State private var reset = false
     @State private var returnHome = false
     @State private var exitGame = false
+    @State private var isCorrect = false
     
     @State private var questionProgress: Double = 0.0
     @State private var currentQuestion: Int = 0
@@ -78,6 +78,21 @@ struct GameView: View {
                 }
                 .materialUnderlayStyle()
                 
+                if isCorrect {
+                    ZStack {
+                        Circle()
+                            .fill(Color.blue)
+                            .frame(width: 12, height: 12)
+                            .modifier(ParticlesModifier())
+                            .offset(x: -100, y: -60)
+                        Circle()
+                            .fill(Color.red)
+                            .frame(width: 12, height: 12)
+                            .modifier(ParticlesModifier())
+                            .offset(x: 60, y: 70)
+                    }
+                }
+                
                 //  Score View
                 Text("Score: \(score)")
                     .materialUnderlayStyle()
@@ -92,11 +107,6 @@ struct GameView: View {
                     .padding()
                     .background(.thinMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 20))
-            }
-            
-            //  Confetti
-            withAnimation {
-                ConfettiCannon(counter: $confettiCounter)
             }
         }
         .onAppear(perform: {
@@ -180,10 +190,10 @@ struct GameView: View {
     
     func optionTapped(_ number: Int) {
         selectedOption = number
-        //debugPrint(settings.selection.rawValue)
-        questionProgress += Double((Double(currentQuestion) / Double(questionCount)))
         
         if answersArray[number].product == questionsArray[currentQuestion].product {
+            isCorrect = true
+            
             score += 1
             alertTitle = "Hurray!"
             alertMessage = "You got it right. \n🥳"
@@ -194,6 +204,8 @@ struct GameView: View {
                 confettiCounter += 1
             }
         } else {
+            isCorrect = false
+            
             if score == 0 {
                 score += 0
             } else {
@@ -209,6 +221,7 @@ struct GameView: View {
         }
         
         currentQuestion += 1
+        questionProgress = Double((Double(currentQuestion) / Double(questionCount)))
         displayAlert = true
     }
     
@@ -218,6 +231,8 @@ struct GameView: View {
             gameOver = true
             resetGame()
         } else {
+            isCorrect = false
+            
             answersArray = []
             createAnswers()
             
