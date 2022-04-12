@@ -12,9 +12,12 @@ v3.1
 - [100 Days of SwiftUI](<https://www.hackingwithswift.com/100/swiftui> "100 Days of SwiftUI")
 
 ## Screenshots
-| `Demo` | `Home Screen` | `Settings Screen` |
-| :-: | :-: | :-: |
-| <div><img width="relative" height="relative" alt="Edutainment Demo" src="https://user-images.githubusercontent.com/60300252/162859546-9e4436cc-508e-45e4-ac74-a164998f94c9.gif"/></div> | <div><img width="relative" height="relative" alt="Home Screen" src="https://user-images.githubusercontent.com/60300252/162859921-ddd1e5f3-85d5-477d-bfc9-f32668a87bf7.png"/></div> | <div><img width="relative" height="relative" alt="Settings Screen" src="https://user-images.githubusercontent.com/60300252/162861082-e67261e2-3dd6-4fa1-9bea-5635fc34a314.png"/></div> |
+| `Demo` |
+| :-: |
+| <div><img width="relative" height="relative" alt="Edutainment Demo" src="https://user-images.githubusercontent.com/60300252/162859546-9e4436cc-508e-45e4-ac74-a164998f94c9.gif"/></div> |
+| `Home Screen` | `Settings Screen` |
+| :-: | :-: |
+| <div><img height="relative" alt="Home Screen" src="https://user-images.githubusercontent.com/60300252/162859921-ddd1e5f3-85d5-477d-bfc9-f32668a87bf7.png"/></div> | <div><img height="relative" alt="Settings Screen" src="https://user-images.githubusercontent.com/60300252/162861082-e67261e2-3dd6-4fa1-9bea-5635fc34a314.png"/></div> |
 
 # How to Use
 **PLAY GAME**
