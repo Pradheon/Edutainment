@@ -12,7 +12,11 @@ v3.1
 - [100 Days of SwiftUI](<https://www.hackingwithswift.com/100/swiftui> "100 Days of SwiftUI")
 
 ## Screenshots
-*Coming Soon*
+**Demo**
+<img src="https://user-images.githubusercontent.com/60300252/162859546-9e4436cc-508e-45e4-ac74-a164998f94c9.gif" width="250" height="250"/>
+**Home Screen**
+<img src="https://user-images.githubusercontent.com/60300252/162859921-ddd1e5f3-85d5-477d-bfc9-f32668a87bf7.png" width="250" height="250"/>
+**
 
 # How to Use
 **PLAY GAME**
